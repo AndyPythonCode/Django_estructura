@@ -1,0 +1,25 @@
+{% extends 'ProyectoWebApp/base.html' %}
+
+{% load static %}
+
+{% block title %} Servicios {% endblock %}
+
+{% block content %}
+    <div class="row py-5">
+        {% for i in Servicio %}
+        <div class="col-3 my-4">
+            <div style="background: #15670E;" class="card text-white" style="width: 18rem;">
+                <img class="card-img-top" src="{{i.imagen.url}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 style="font-weight: bold" class="card-title">{{i.titulo}}</h5>
+                  <p class="card-text">{{i.contenido}}</p>
+                </div>
+              </div>
+        </div>
+        {% empty %}
+        <div class="alert alert-danger" role="alert">
+            No se encontro ningun servicio
+          </div>
+    {% endfor %}
+    </div>
+{% endblock %}
